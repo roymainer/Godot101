@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Parallax/assets/1080x600.png" type="Texture" id=1]
+[ext_resource path="res://Parallax/camera.gd" type="Script" id=2]
+
+[node name="main" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="parallax_background" type="ParallaxBackground" parent="."]
+
+[node name="background" type="ParallaxLayer" parent="parallax_background"]
+motion_mirroring = Vector2( 1024, 0 )
+
+[node name="Sprite" type="Sprite" parent="parallax_background/background"]
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1024, 600 )
+
+[node name="camera" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+zoom = Vector2( 0, 0 )
+script = ExtResource( 2 )
+
